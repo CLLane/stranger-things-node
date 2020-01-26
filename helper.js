@@ -41,6 +41,7 @@ cleanEpisodes = data => {
         .join("")
         .split(".")[0]
     }.`;
+    //line 45 was found on stack overflow (https://stackoverflow.com/questions/13707333/javascript-convert-date-time-string-to-epoch)//
     let epochTime = dateToEpoch(episode.airstamp);
     return {
       [episode.id]: {
