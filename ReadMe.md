@@ -8,7 +8,7 @@ After you npm install you will be able to run npm test or node server.js.  If yo
 
 ### Installation and Setup
 From the command line:
-1. `https://github.com/CLLane/stranger-things-node.git`
+1. `git clone https://github.com/CLLane/stranger-things-node.git`
 1. Run `npm install`
 1. Run `node server.js`
 
