@@ -12,4 +12,4 @@ const getData = async url => {
   }
 };
 
-ggetData(url);
+getData(url);
