@@ -8,11 +8,11 @@ const {
   calculateSeriesDuration,
   getAvgEpisodes,
   cleanEpisodes
-} = require("./helper.js");
-const data = require("./apiCall");
+} = require("./helper");
+const fetchData = require("./apiCall");
 
 app.get("/", async (request, response) => {
-  let fetchResponse = await data(url);
+  let fetchResponse = await fetchData(url);
   let showId = fetchResponse.id;
   let seriesDuration = calculateSeriesDuration(fetchResponse);
   let avgEpisodes = getAvgEpisodes(fetchResponse);
@@ -33,3 +33,5 @@ app.listen(port, err => {
   }
   console.log(`server is listening on ${port}`);
 });
+
+module.exports = app;

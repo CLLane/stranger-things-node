@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-let data = async url => {
+let fetchData = async url => {
   try {
     let response = await fetch(`${url}`);
     let responseData = await response.json();
@@ -10,4 +10,4 @@ let data = async url => {
   }
 };
 
-module.exports = data;
+module.exports = fetchData;
