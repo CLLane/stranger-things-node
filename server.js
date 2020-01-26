@@ -1,29 +1,28 @@
-const fetch = require("node-fetch");
-const http = require('http');
-const server = http.createServer();
+const express = require('express');
+const fetch = require('node-fetch')
+const app = express();
+const port = 3000;
+const url = 'http://api.tvmaze.com/singlesearch/shows?q=stranger-things&embed=episodes'
 
-const url = "http://api.tvmaze.com/singlesearch/shows?q=stranger-things&embed=episodes";
+let data = async (url) => {
+ try {
+  let response = await fetch(`${url}`)
+  let responseData = await response.json()
+  return responseData
+} catch (error) {
+  throw new Error('Failed to retrieve Stranger Things data')
+}
+}
 
-server.listen(3001, () => {
-  console.log('The HTTP server is listening at Port 3001')
+app.get('/', async (request, response) => {
+  let y = await data(url)
+  console.log(y)
+  response.status(200).send(y)
 })
 
-server.on('request', async (request, response) => {
-  if (request.method === 'GET') {
-    let x = await getData(url)
-    return x;
-  }
+app.listen(port, (err) => {
+  if (err) {
+    return console.log('something horrible has happened', err)
+  } 
+  console.log(`server is listening on ${port}`)
 })
-
-// const app = express();
-// const environment = process.env.NODE_ENV || 'development'
-const getData = async url => {
-  try {
-    const response = await fetch(url);
-    const json = await response.json();
-    return json;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
