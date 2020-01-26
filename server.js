@@ -8,9 +8,10 @@ server.listen(3001, () => {
   console.log('The HTTP server is listening at Port 3001')
 })
 
-server.on('request', (request, response) => {
+server.on('request', async (request, response) => {
   if (request.method === 'GET') {
-    return getData(url)
+    let x = await getData(url)
+    return x;
   }
 })
 
