@@ -23,8 +23,3 @@ Run `nmp test`
 - Express.js 
 - Jest / Enzyme
 
-### Endpoints
-
-| url | verb | options | expected response |
-| ----|------|---------|---------------- |
-| `http://localhost:3001/` | GET | | OBJECT containing parsed / manipulated data |
